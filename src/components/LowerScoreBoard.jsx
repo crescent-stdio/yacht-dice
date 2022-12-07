@@ -45,7 +45,10 @@ const LowerScoreBoard = (props, ref) => {
           </tr>
         </thead>
         <tbody>
-          <tr onClick={handleChoice} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleChoice}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             {/* A. 점수 선택 */}
             {/* 클릭하면 현재 주사위에 대한 예상 점수가 선택한 점수로 바뀌며 다음 라운드로 진행하게 된다. */}
             <th
@@ -60,11 +63,15 @@ const LowerScoreBoard = (props, ref) => {
               {ref.current.choice !== -1 ? ref.current.choice : ""}
             </td>
             {/* `expected`, 현재 주사위에 대한 예상 점수 */}
-            <td className="expected border-x py-1 sm:py-2">{expectedScore.choice}</td>
+            <td className="expected border-x py-1 sm:py-2">
+              {expectedScore.choice}
+            </td>
           </tr>
-          <tr className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleFourOfAKind}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
-              onClick={handleFourOfAKind}
               className="border-x w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2 "
               data-tip="같은 눈을 가진 주사위가 4개 이상	| (주사위의 눈) * 4"
             >
@@ -73,9 +80,14 @@ const LowerScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fourOfAKind !== -1 ? ref.current.fourOfAKind : ""}
             </td>
-            <td className="expected border-x py-1 sm:py-2">{expectedScore.fourOfAKind}</td>
+            <td className="expected border-x py-1 sm:py-2">
+              {expectedScore.fourOfAKind}
+            </td>
           </tr>
-          <tr onClick={handleFullHouse} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleFullHouse}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left whitespace-pre-line py-1 sm:py-2"
               data-html="true"
@@ -86,9 +98,14 @@ const LowerScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fullHouse !== -1 ? ref.current.fullHouse : ""}
             </td>
-            <td className="expected border-x py-1 sm:py-2">{expectedScore.fullHouse}</td>
+            <td className="expected border-x py-1 sm:py-2">
+              {expectedScore.fullHouse}
+            </td>
           </tr>
-          <tr onClick={handleSmallStraight} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleSmallStraight}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="주사위 4개 이상이 연속된 숫자 | 15점"
@@ -100,9 +117,14 @@ const LowerScoreBoard = (props, ref) => {
                 ? ref.current.smallStraight
                 : ""}
             </td>
-            <td className="expected border-x py-1 sm:py-2">{expectedScore.smallStraight}</td>
+            <td className="expected border-x py-1 sm:py-2">
+              {expectedScore.smallStraight}
+            </td>
           </tr>
-          <tr onClick={handleLargeStraight} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleLargeStraight}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x dark:border-[#e5e7eb] w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="주사위 5개가 연속된 숫자 | 30점"
@@ -114,9 +136,14 @@ const LowerScoreBoard = (props, ref) => {
                 ? ref.current.largeStraight
                 : ""}
             </td>
-            <td className="expected border-x py-1 sm:py-2">{expectedScore.largeStraight}</td>
+            <td className="expected border-x py-1 sm:py-2">
+              {expectedScore.largeStraight}
+            </td>
           </tr>
-          <tr onClick={handleYacht} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleYacht}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x border-b w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="같은 눈을 가진 주사위가 5개 | 50점"
@@ -126,7 +153,9 @@ const LowerScoreBoard = (props, ref) => {
             <td className="earned border-b py-1 sm:py-2">
               {ref.current.yacht !== -1 ? ref.current.yacht : ""}
             </td>
-            <td className="expected border-x border-b py-1 sm:py-2">{expectedScore.yacht}</td>
+            <td className="expected border-x border-b py-1 sm:py-2">
+              {expectedScore.yacht}
+            </td>
           </tr>
         </tbody>
       </table>
