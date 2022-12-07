@@ -43,7 +43,7 @@ const UpperScoreBoard = (props, ref) => {
       <table className="table table-fixed table-compact">
         <thead>
           <tr className="dark:[&>*]:border-[#e5e7eb]">
-            <th className="border w-36 md:w-40 py-1 sm:py-2"></th>
+            <th className="border-x border-y w-36 md:w-40 py-1 sm:py-2"></th>
             <th className="border-y py-1 sm:py-2">Earned</th>
             <th className="border py-1 sm:py-2">Expected</th>
           </tr>

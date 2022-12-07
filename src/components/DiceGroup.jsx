@@ -7,23 +7,38 @@ import dice_3 from "../assets/dice_3.png";
 import dice_4 from "../assets/dice_4.png";
 import dice_5 from "../assets/dice_5.png";
 import dice_6 from "../assets/dice_6.png";
-import selected_dice_1 from "../assets/selected/dice_1.png";
-import selected_dice_2 from "../assets/selected/dice_2.png";
-import selected_dice_3 from "../assets/selected/dice_3.png";
-import selected_dice_4 from "../assets/selected/dice_4.png";
-import selected_dice_5 from "../assets/selected/dice_5.png";
-import selected_dice_6 from "../assets/selected/dice_6.png";
+import selected_light_dice_1 from "../assets/selected_light/dice_1.png";
+import selected_light_dice_2 from "../assets/selected_light/dice_2.png";
+import selected_light_dice_3 from "../assets/selected_light/dice_3.png";
+import selected_light_dice_4 from "../assets/selected_light/dice_4.png";
+import selected_light_dice_5 from "../assets/selected_light/dice_5.png";
+import selected_light_dice_6 from "../assets/selected_light/dice_6.png";
+import selected_dark_dice_1 from "../assets/selected_dark/dice_1.png";
+import selected_dark_dice_2 from "../assets/selected_dark/dice_2.png";
+import selected_dark_dice_3 from "../assets/selected_dark/dice_3.png";
+import selected_dark_dice_4 from "../assets/selected_dark/dice_4.png";
+import selected_dark_dice_5 from "../assets/selected_dark/dice_5.png";
+import selected_dark_dice_6 from "../assets/selected_dark/dice_6.png";
 // 주사위 이미지
 const diceImages = ["", dice_1, dice_2, dice_3, dice_4, dice_5, dice_6];
 // 선택된 주사위 이미지
-const selectedDiceImages = [
+const selectedLightDiceImages = [
   "",
-  selected_dice_1,
-  selected_dice_2,
-  selected_dice_3,
-  selected_dice_4,
-  selected_dice_5,
-  selected_dice_6,
+  selected_light_dice_1,
+  selected_light_dice_2,
+  selected_light_dice_3,
+  selected_light_dice_4,
+  selected_light_dice_5,
+  selected_light_dice_6,
+];
+const selectedDarkDiceImages = [
+  "",
+  selected_dark_dice_1,
+  selected_dark_dice_2,
+  selected_dark_dice_3,
+  selected_dark_dice_4,
+  selected_dark_dice_5,
+  selected_dark_dice_6,
 ];
 
 const DiceGroup = (props, ref) => {
@@ -74,6 +89,7 @@ const DiceGroup = (props, ref) => {
     if (ref.current.reset) ref.current.reset = false;
   }, [ref.current.round, ref.current.reset]);
 
+  console.log(ref.current.theme)
   return (
     <div className="mb-4 h-full">
       <div className="mb-1">
@@ -93,7 +109,7 @@ const DiceGroup = (props, ref) => {
             src={
               !selectedDice[index]
                 ? diceImages[value]
-                : selectedDiceImages[value]
+                : ref.current.theme === 'light'? selectedLightDiceImages[value]: selectedDarkDiceImages[value]
             }
             alt={`dice ${value}`}
             key={index}

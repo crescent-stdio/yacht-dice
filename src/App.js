@@ -4,31 +4,32 @@ import { useState, useEffect, useRef } from "react";
 import DiceGroup from "./components/DiceGroup";
 import ScoreBoard from "./components/ScoreBoard";
 import calculateScore from "./utils/calculateScore";
-// import { themeChange } from "theme-change";
 import useLocalStorage from "use-local-storage";
 
 function App() {
-  // useEffect(() => {
-  //   themeChange(false);
-  //   // 👆 false parameter is required for react project
-  // }, []);
-
   // 주사위 5개의 현재 상태를 나타내는 배열
   const [dice, setDice] = useState([1, 1, 1, 1, 1]);
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)");
+  const localTheme =
+    JSON.parse(localStorage.getItem("theme")) ||
+    (defaultDark.matches ? "dracula" : "light");
+  const [theme, setTheme] = useLocalStorage("theme", localTheme);
   // 라운드 수(`round`, `number`), 그 라운드에서 주사위를 굴린 횟수(`roll`, `number`) 그리고 초기화 여부(`reset`, `boolean`)를 담은 현재 진행 상황을 담은 객체
-  const playStatus = useRef({ round: 1, roll: 1, reset: false });
+  const playStatus = useRef({
+    round: 1,
+    roll: 1,
+    reset: false,
+    theme: "light",
+  });
   // C. `isSubmitted` 선언
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [, updateState] = useState();
-  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark ? "dracula" : "light"
-  );
+
+  playStatus.current.theme = theme;
+  document.documentElement.dataset.theme = theme;
 
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dracula" : "light";
-    document.documentElement.dataset.theme = newTheme;
     setTheme(newTheme);
   };
 
@@ -71,7 +72,7 @@ function App() {
         </div>
         <div className="flex flex-col-reverse sm:flex-row">
           {/* 스코어보드를 표시하는 컴포넌트 */}
-          <div className="sm:mr-4">
+          <div className="sm:mr-4 mb-4 sm:mb-0">
             <ScoreBoard
               ref={playStatus}
               expectedScore={expectedScore}
