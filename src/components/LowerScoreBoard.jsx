@@ -73,7 +73,7 @@ const LowerScoreBoard = (props, ref) => {
           >
             <th
               className="border-x w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2 "
-              data-tip="같은 눈을 가진 주사위가 4개 이상	| (주사위의 눈) * 4"
+              data-tip="같은 눈을 가진 주사위가 4개 이상	| 주사위 5개의 합"
             >
               4 of a Kind
             </th>
