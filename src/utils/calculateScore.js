@@ -18,8 +18,7 @@ const calculateScore = (dices) => {
   score.choice = dices.reduce((a, b) => a + b, 0);
   // Four of a kind
   const isFourOfAKind = diceCount.some((count) => count >= 4);
-  const fourOfAKindNum = diceCount.findIndex((count) => count >= 4);
-  score.fourOfAKind = isFourOfAKind ? fourOfAKindNum * 4 : 0;
+  score.fourOfAKind = isFourOfAKind ? dices.reduce((a, b) => a + b, 0): 0;
   // Full house
   const isFullHouse =
     (diceCount.some((count) => count === 2) &&
