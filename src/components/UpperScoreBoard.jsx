@@ -49,7 +49,10 @@ const UpperScoreBoard = (props, ref) => {
           </tr>
         </thead>
         <tbody>
-          <tr onClick={handleOnes} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleOnes}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             {/* A. 점수 선택 */}
             {/* 클릭하면 현재 주사위에 대한 예상 점수가 선택한 점수로 바뀌며 다음 라운드로 진행하게 된다. */}
             <th
@@ -68,7 +71,10 @@ const UpperScoreBoard = (props, ref) => {
               {expectedScore.ones}
             </td>
           </tr>
-          <tr onClick={handleTwos} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleTwos}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="2가 하나 이상 | 2의 개수 * 2"
@@ -82,7 +88,10 @@ const UpperScoreBoard = (props, ref) => {
               {expectedScore.twos}
             </td>
           </tr>
-          <tr onClick={handleThrees} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleThrees}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content"
               data-tip="3이 하나 이상	| 3의 개수 * 3"
@@ -96,7 +105,10 @@ const UpperScoreBoard = (props, ref) => {
               {expectedScore.threes}
             </td>
           </tr>
-          <tr onClick={handleFours} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleFours}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="4가 하나 이상	| 4의 개수 * 4"
@@ -110,7 +122,10 @@ const UpperScoreBoard = (props, ref) => {
               {expectedScore.fours}
             </td>
           </tr>
-          <tr onClick={handleFives} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleFives}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="5가 하나 이상	| 5의 개수 * 5"
@@ -124,7 +139,10 @@ const UpperScoreBoard = (props, ref) => {
               {expectedScore.fives}
             </td>
           </tr>
-          <tr onClick={handleSixes} className="score hover dark:[&>*]:border-[#e5e7eb]">
+          <tr
+            onClick={handleSixes}
+            className="score hover dark:[&>*]:border-[#e5e7eb]"
+          >
             <th
               className="border-x w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content"
               data-tip="6이 하나 이상	| 6의 개수 * 6"

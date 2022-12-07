@@ -65,6 +65,7 @@ const DiceGroup = (props, ref) => {
       alert("You have used all your rounds. Please start a new game.");
       return;
     }
+    if (selectedDice.every((d) => d === true)) return;
     setDice(
       dice.map((d, index) => {
         if (selectedDice[index]) return d;
@@ -89,7 +90,7 @@ const DiceGroup = (props, ref) => {
     if (ref.current.reset) ref.current.reset = false;
   }, [ref.current.round, ref.current.reset]);
 
-  console.log(ref.current.theme)
+  console.log(ref.current.theme);
   return (
     <div className="mb-4 h-full">
       <div className="mb-1">
@@ -99,7 +100,9 @@ const DiceGroup = (props, ref) => {
             Round: {ref.current.round} | Roll: {ref.current.roll}
           </h3>
         ) : (
-          <h3 className="status font-lg font-extrabold text-primary ">Game Over!</h3>
+          <h3 className="status font-lg font-extrabold text-primary ">
+            Game Over!
+          </h3>
         )}
       </div>
       <div className="flex mb-2 md:mb-4 -ml-1">
@@ -109,7 +112,9 @@ const DiceGroup = (props, ref) => {
             src={
               !selectedDice[index]
                 ? diceImages[value]
-                : ref.current.theme === 'light'? selectedLightDiceImages[value]: selectedDarkDiceImages[value]
+                : ref.current.theme === "light"
+                ? selectedLightDiceImages[value]
+                : selectedDarkDiceImages[value]
             }
             alt={`dice ${value}`}
             key={index}

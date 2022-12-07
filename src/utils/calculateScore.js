@@ -18,11 +18,12 @@ const calculateScore = (dices) => {
   score.choice = dices.reduce((a, b) => a + b, 0);
   // Four of a kind
   const isFourOfAKind = diceCount.some((count) => count >= 4);
-  score.fourOfAKind = isFourOfAKind ? dices.reduce((a, b) => a + b, 0): 0;
+  score.fourOfAKind = isFourOfAKind ? dices.reduce((a, b) => a + b, 0) : 0;
   // Full house
   const isFullHouse =
     (diceCount.some((count) => count === 2) &&
-    diceCount.some((count) => count === 3)) || (diceCount.some((count) => count === 5));
+      diceCount.some((count) => count === 3)) ||
+    diceCount.some((count) => count === 5);
   score.fullHouse = isFullHouse ? dices.reduce((a, b) => a + b, 0) : 0;
   // Small straight
   const isSmallStraight =

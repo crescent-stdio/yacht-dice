@@ -27,9 +27,9 @@ const ScoreBoard = (props, ref) => {
 
   // B. 최종 점수 계산
   const totalScore =
-  (sumScore(upperScore.current) >= 63 ? 35 : 0) +
-  sumScore(upperScore.current) +
-  sumScore(lowerScore.current);
+    (sumScore(upperScore.current) >= 63 ? 35 : 0) +
+    sumScore(upperScore.current) +
+    sumScore(lowerScore.current);
 
   // C. 초기화
   if (ref.current.reset) {
@@ -66,7 +66,9 @@ const ScoreBoard = (props, ref) => {
       />
       <div className="mb-2" />
       {/* B. 최종 점수 출력 */}
-      <h3 className="totalScore text-lg font-extrabold text-primary">Total: {totalScore}</h3>
+      <h3 className="totalScore text-lg font-extrabold text-primary">
+        Total: {totalScore}
+      </h3>
     </div>
   );
 };
