@@ -90,7 +90,7 @@ const DiceGroup = (props, ref) => {
     if (ref.current.reset) ref.current.reset = false;
   }, [ref.current.round, ref.current.reset]);
 
-  console.log(ref.current.theme);
+  // console.log(ref.current.theme);
   return (
     <div className="mb-4 h-full">
       <div className="mb-1">
