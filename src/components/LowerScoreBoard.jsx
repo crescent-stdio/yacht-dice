@@ -51,7 +51,7 @@ const LowerScoreBoard = (props, ref) => {
             {/* A. 점수 선택 */}
             {/* 클릭하면 현재 주사위에 대한 예상 점수가 선택한 점수로 바뀌며 다음 라운드로 진행하게 된다. */}
             <td
-              className="tooltip tooltip-top md:tooltip-left text-left w-36 md:w-40 py-1 sm:py-2"
+              className="z-50 tooltip tooltip-top md:tooltip-left text-left w-36 md:w-40 py-1 sm:py-2"
               data-tip="주사위 5개의 합"
             >
               Choice
@@ -66,7 +66,7 @@ const LowerScoreBoard = (props, ref) => {
           </tr>
           <tr onClick={handleFourOfAKind} className="score hover">
             <td
-              className="w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2 "
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2 "
               data-tip="같은 눈을 가진 주사위가 4개 이상	| 주사위 5개의 합"
             >
               4 of a Kind
@@ -80,9 +80,10 @@ const LowerScoreBoard = (props, ref) => {
           </tr>
           <tr onClick={handleFullHouse} className="score hover">
             <td
-              className="w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left whitespace-pre-line py-1 sm:py-2"
-              data-html="true"
-              data-tip="같은 눈을 가진 주사위가 3개 그리고 또 다른 같은 눈을 가진 주사위가 2개. 같은 눈을 가진 주사위가 5개인 경우(Yacht)에도 해당 | 주사위 5개의 합"
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left whitespace-pre-line py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
+              data-tip="같은 눈을 가진 주사위가 3개 그리고 또 다른 같은 눈을 가진 주사위가 2개.
+              같은 눈을 가진 주사위가 5개인 경우(Yacht)에도 해당 
+              | 주사위 5개의 합"
             >
               Full House
             </td>
@@ -93,7 +94,7 @@ const LowerScoreBoard = (props, ref) => {
           </tr>
           <tr onClick={handleSmallStraight} className="score hover">
             <td
-              className="w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="주사위 4개 이상이 연속된 숫자 | 15점"
             >
               Small Straight
@@ -109,7 +110,7 @@ const LowerScoreBoard = (props, ref) => {
           </tr>
           <tr onClick={handleLargeStraight} className="score hover">
             <td
-              className="w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="주사위 5개가 연속된 숫자 | 30점"
             >
               Large Straight
@@ -125,7 +126,7 @@ const LowerScoreBoard = (props, ref) => {
           </tr>
           <tr onClick={handleYacht} className="score hover">
             <td
-              className="w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="같은 눈을 가진 주사위가 5개 | 50점"
             >
               Yacht

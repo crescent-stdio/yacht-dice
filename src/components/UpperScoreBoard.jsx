@@ -57,7 +57,7 @@ const UpperScoreBoard = (props, ref) => {
             {/* A. 점수 선택 */}
             {/* 클릭하면 현재 주사위에 대한 예상 점수가 선택한 점수로 바뀌며 다음 라운드로 진행하게 된다. */}
             <td
-              className="text-left tooltip tooltip-top md:tooltip-left tooltip-info-content w-36 md:w-40 cursor-pointer py-1 sm:py-2"
+              className="text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content w-36 md:w-40 md:cursor-pointer py-1 sm:py-2"
               data-tip="1이 하나 이상 | 1의 개수 * 1"
             >
               Ones
@@ -77,7 +77,7 @@ const UpperScoreBoard = (props, ref) => {
             className="score hover"
           >
             <td
-              className="w-36 md:w-40 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
               data-tip="2가 하나 이상 | 2의 개수 * 2"
             >
               Twos
@@ -94,7 +94,7 @@ const UpperScoreBoard = (props, ref) => {
             className="score hover"
           >
             <td
-              className="w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="3이 하나 이상	| 3의 개수 * 3"
             >
               Threes
@@ -111,7 +111,7 @@ const UpperScoreBoard = (props, ref) => {
             className="score hover"
           >
             <td
-              className="w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="4가 하나 이상	| 4의 개수 * 4"
             >
               Fours
@@ -128,7 +128,7 @@ const UpperScoreBoard = (props, ref) => {
             className="score hover"
           >
             <td
-              className="w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="5가 하나 이상	| 5의 개수 * 5"
             >
               Fives
@@ -145,7 +145,7 @@ const UpperScoreBoard = (props, ref) => {
             className="score hover"
           >
             <td
-              className="w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="6이 하나 이상	| 6의 개수 * 6"
             >
               Sixes
@@ -160,7 +160,7 @@ const UpperScoreBoard = (props, ref) => {
           {/* C. 중간 점수 출력 */}
           <tr className="subtotal bg-primary-content font-extrabold">
             <td
-              className="w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="Section 1의 점수 합"
             >
               Subtotal
@@ -171,7 +171,7 @@ const UpperScoreBoard = (props, ref) => {
           </tr>
           <tr className="bonus font-extrabold">
             <td
-              className="w-36 md:w-40 text-left tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
               data-tip="Section 1의 점수가 63점 이상이면 35점 보너스"
             >
               Bonus

@@ -125,7 +125,7 @@ function App() {
               />
             </button>
             <button
-              className="text-xl sm:text-2xl font-extrabold mx-1 tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-50 before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
+              className="text-xl sm:text-2xl font-extrabold mx-1 tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-[100] before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
               data-tip="🎲 Yacht Dice!
 A. 주사위 굴리기
 1. 주사위는 5개가 있다.
@@ -141,7 +141,9 @@ C. 조작법
 🌙: 현재 어두운 테마
 🎲: 게임 초기화
 D. Credit
-- Made by @crescent-stdio"
+- Rule from 51 Worldwide Games
+- Made by @crescent-stdio
+- Thanks to @16silver"
             >
               ℹ️
             </button>
