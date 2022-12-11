@@ -30,6 +30,7 @@ const ScoreBoard = (props, ref) => {
     (sumScore(upperScore.current) >= 63 ? 35 : 0) +
     sumScore(upperScore.current) +
     sumScore(lowerScore.current);
+  ref.current.score = totalScore;
 
   // C. 초기화
   if (ref.current.reset) {
@@ -50,7 +51,6 @@ const ScoreBoard = (props, ref) => {
       yacht: -1,
     };
   }
-
   return (
     <div>
       {/* A. 매개변수 전달 */}
