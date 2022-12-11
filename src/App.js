@@ -5,6 +5,8 @@ import DiceGroup from "./components/DiceGroup";
 import ScoreBoard from "./components/ScoreBoard";
 import calculateScore from "./utils/calculateScore";
 import useLocalStorage from "use-local-storage";
+import twitter from "./assets/twitter.svg";
+import { toBlob } from "html-to-image";
 
 function App() {
   // 주사위 5개의 현재 상태를 나타내는 배열
@@ -18,6 +20,7 @@ function App() {
   const playStatus = useRef({
     round: 1,
     roll: 1,
+    score: 0,
     reset: false,
     theme: "light",
   });
@@ -37,6 +40,7 @@ function App() {
   const toggleReset = () => {
     playStatus.current.round = 1;
     playStatus.current.roll = 1;
+    playStatus.current.score = 0;
     playStatus.current.reset = true;
     updateState({});
   };
@@ -52,9 +56,58 @@ function App() {
   // set html data-theme to current theme
   // B. 현재 주사위의 조합의 점수
   const expectedScore = calculateScore(dice);
+
+  const imageRef = useRef(null);
+  const handleShare = async () => {
+    const newFile = await toBlob(imageRef.current);
+    const data = {
+      files: [
+        new File([newFile], `yacht-${playStatus.current.score}.png`, {
+          type: "image/png",
+        }),
+      ],
+      title: "Yacht Dice!",
+      text: `I got ${playStatus.current.score} points in Yacht Dice!`,
+    };
+    // try {
+    //   // make a share data64 image
+
+    //   await navigator.share(data);
+    // } catch(err) {
+    //   console.log(err);
+    // }
+    // return base64 image url
+    return data.files[0].name;
+    // make base64 image
+    // const reader = new FileReader();
+    // reader.readAsDataURL(newFile);
+    // reader.onloadend = () => {
+    //   const base64data = reader.result;
+    //   data.files = [base64data];
+    //   navigator.share(data);
+    // }
+  };
+  const shareTwitter = () => {
+    // const imageUrl = handleShare();
+    // return;
+    const title = "Yacht Dice!: ";
+    const sendText =
+      playStatus.current.round > 12
+        ? `I got ${playStatus.current.score} points`
+        : `I got ${playStatus.current.score} points, round ${playStatus.current.round}`;
+    const sendUrl = `https://yacht.crescent.dev/`;
+    window.open(
+      "https://twitter.com/intent/tweet?text=" +
+        title +
+        sendText +
+        "&hashtags=yacht_dice" + 
+        "&url=" +
+        sendUrl
+    );
+  };
   return (
     <div className="app box-border max-x-screen h-[100vh] flex content-center justify-center">
-      <div className="px-2 my-6 sm:px-4 sm:my-8">
+      <div ref={imageRef} className="px-2 my-6 sm:px-4 sm:my-8">
         <div className="w-full flex flex-row flex-wrap justify-between h-fit mb-4">
           <div className="flex flex-row">
             <h1 className="text-2xl sm:text-3xl font-extrabold mr-2">
@@ -63,12 +116,21 @@ function App() {
             <h1 className="text-2xl sm:text-3xl font-extrabold">Yacht Dice</h1>
           </div>
           {/* theme button */}
-          <button
-            onClick={switchTheme}
-            className="text-2xl sm:text-3xl font-extrabold"
-          >
-            {theme === "light" ? "🌞" : "🌙"}
-          </button>
+          <div className="flex flex-row">
+            <button onClick={shareTwitter} className="">
+              <img
+                src={twitter}
+                alt="twitter"
+                className="w-6 h-6 sm:w-8 sm:h-8"
+              />
+            </button>
+            <button
+              onClick={switchTheme}
+              className="text-xl sm:text-2xl font-extrabold"
+            >
+              {theme === "light" ? "🌞" : "🌙"}
+            </button>
+          </div>
         </div>
         <div className="flex flex-col-reverse sm:flex-row">
           {/* 스코어보드를 표시하는 컴포넌트 */}
