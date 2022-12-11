@@ -124,8 +124,8 @@ const DiceGroup = (props, ref) => {
           />
         ))}
       </div>
-      {/* 주사위를 굴리는 버튼.  */}
-      <button onClick={rollDice} className="btn btn-primary w-full ">
+      {/* 주사위를 굴리는 버튼.*/}
+      <button onClick={rollDice} className="erase btn btn-primary w-full ">
         Roll
       </button>
     </div>

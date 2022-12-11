@@ -7,6 +7,7 @@ import calculateScore from "./utils/calculateScore";
 import useLocalStorage from "use-local-storage";
 import twitter from "./assets/twitter.svg";
 import { toBlob } from "html-to-image";
+import * as htmlToImage from "html-to-image";
 
 function App() {
   // 주사위 5개의 현재 상태를 나타내는 배열
@@ -59,37 +60,19 @@ function App() {
 
   const imageRef = useRef(null);
   const handleShare = async () => {
-    const newFile = await toBlob(imageRef.current);
-    const data = {
-      files: [
-        new File([newFile], `yacht-${playStatus.current.score}.png`, {
-          type: "image/png",
-        }),
-      ],
-      title: "Yacht Dice!",
-      text: `I got ${playStatus.current.score} points in Yacht Dice!`,
-    };
-    // try {
-    //   // make a share data64 image
+    const erase = document.querySelectorAll(".erase");
+    erase.forEach((e) => (e.style.display = "none"));
+    const data = await htmlToImage.toPng(imageRef.current);
 
-    //   await navigator.share(data);
-    // } catch(err) {
-    //   console.log(err);
-    // }
-    // return base64 image url
-    return data.files[0].name;
-    // make base64 image
-    // const reader = new FileReader();
-    // reader.readAsDataURL(newFile);
-    // reader.onloadend = () => {
-    //   const base64data = reader.result;
-    //   data.files = [base64data];
-    //   navigator.share(data);
-    // }
+    const link = document.createElement("a");
+    link.download = `yacht_dice-${playStatus.current.score}.png`;
+    link.href = data;
+    link.click();
+    link.remove();
+    erase.forEach((e) => (e.style.display = ""));
   };
   const shareTwitter = () => {
-    // const imageUrl = handleShare();
-    // return;
+    handleShare();
     const title = "Yacht Dice!: ";
     const sendText =
       playStatus.current.round > 12
@@ -106,26 +89,28 @@ function App() {
     );
   };
   return (
-    <div className="app box-border max-x-screen h-[100vh] flex content-center justify-center">
-      <div ref={imageRef} className="px-2 my-6 sm:px-4 sm:my-8">
+    <div
+      id={imageRef}
+      ref={imageRef}
+      className="app box-border max-x-screen h-[100%] flex content-center justify-center"
+    >
+      <div className="bg-base-100 px-2 py-4 sm:px-4 sm:py-8">
         <div className="w-full flex flex-row flex-wrap justify-between h-fit mb-4">
           <div className="flex flex-row">
-            <h1 className="text-2xl sm:text-3xl font-extrabold mr-2">
-              <button onClick={toggleReset}>🎲</button>
+            <h1 className="text-2xl sm:text-3xl font-extrabold mr-2 cursor-pointer">
+              <div id="dice" onClick={toggleReset}>
+                🎲
+              </div>
             </h1>
             <h1 className="text-2xl sm:text-3xl font-extrabold">Yacht Dice</h1>
           </div>
           {/* theme button */}
-          <div className="flex flex-row">
-            <button onClick={shareTwitter} className="">
-              <img
-                src={twitter}
-                alt="twitter"
-                className="w-6 h-6 sm:w-8 sm:h-8"
-              />
+          <div className="flex flex-row text-xl sm:text-2xl font-extrabold">
+            <button onClick={shareTwitter} className="erase">
+              🖼
             </button>
             <button
-              className="text-xl sm:text-2xl font-extrabold mx-1 tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-[100] before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
+              className="erase text-xl sm:text-2xl font-extrabold mx-1 tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-[100] before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
               data-tip="🎲 Yacht Dice!
 A. 주사위 굴리기
 1. 주사위는 5개가 있다.
@@ -136,10 +121,11 @@ B. 점수 책정
 - 주사위 눈에 따라 다음 `12`개 조합 중 하나를 반드시 골라 해당 조합의 점수를 얻는다. 만약 주사위 눈이 해당 조합의 조건을 만족하지 않는데 선택했다면 `0`점을 얻는다.
 - `12`라운드 동안 모든 조합을 한 번씩 선택하면 게임이 끝난다.
 C. 조작법
+🎲: 게임 초기화
+🖼: 트위터 공유
 ℹ️: 게임 설명
 🌞: 현재 밝은 테마
 🌙: 현재 어두운 테마
-🎲: 게임 초기화
 D. Credit
 - Rule from 51 Worldwide Games
 - Made by @crescent-stdio
@@ -157,7 +143,7 @@ D. Credit
         </div>
         <div className="flex flex-col-reverse sm:flex-row">
           {/* 스코어보드를 표시하는 컴포넌트 */}
-          <div className="sm:mr-4 mb-4 sm:mb-0">
+          <div className="sm:mr-4 mb-2">
             <ScoreBoard
               ref={playStatus}
               expectedScore={expectedScore}

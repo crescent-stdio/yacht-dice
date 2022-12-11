@@ -50,14 +50,11 @@ const UpperScoreBoard = (props, ref) => {
           </tr>
         </thead>
         <tbody>
-          <tr
-            onClick={handleOnes}
-            className="score hover"
-          >
+          <tr onClick={handleOnes} className="score hover">
             {/* A. 점수 선택 */}
             {/* 클릭하면 현재 주사위에 대한 예상 점수가 선택한 점수로 바뀌며 다음 라운드로 진행하게 된다. */}
             <td
-              className="text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content w-36 md:w-40 md:cursor-pointer py-1 sm:py-2"
+              className="text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content w-36 md:w-40 md:cursor-pointer py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="1이 하나 이상 | 1의 개수 * 1"
             >
               Ones
@@ -68,16 +65,11 @@ const UpperScoreBoard = (props, ref) => {
               {ref.current.ones !== -1 ? ref.current.ones : ""}
             </td>
             {/* `expected`, 현재 주사위에 대한 예상 점수 */}
-            <td className="expected py-1 sm:py-2">
-              {expectedScore.ones}
-            </td>
+            <td className="expected py-1 sm:py-2">{expectedScore.ones}</td>
           </tr>
-          <tr
-            onClick={handleTwos}
-            className="score hover"
-          >
+          <tr onClick={handleTwos} className="score hover">
             <td
-              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2"
+              className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="2가 하나 이상 | 2의 개수 * 2"
             >
               Twos
@@ -85,16 +77,11 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.twos !== -1 ? ref.current.twos : ""}
             </td>
-            <td className="expected py-1 sm:py-2">
-              {expectedScore.twos}
-            </td>
+            <td className="expected py-1 sm:py-2">{expectedScore.twos}</td>
           </tr>
-          <tr
-            onClick={handleThrees}
-            className="score hover"
-          >
+          <tr onClick={handleThrees} className="score hover">
             <td
-              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="3이 하나 이상	| 3의 개수 * 3"
             >
               Threes
@@ -102,16 +89,11 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.threes !== -1 ? ref.current.threes : ""}
             </td>
-            <td className="expected py-1 sm:py-2">
-              {expectedScore.threes}
-            </td>
+            <td className="expected py-1 sm:py-2">{expectedScore.threes}</td>
           </tr>
-          <tr
-            onClick={handleFours}
-            className="score hover"
-          >
+          <tr onClick={handleFours} className="score hover">
             <td
-              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="4가 하나 이상	| 4의 개수 * 4"
             >
               Fours
@@ -119,16 +101,11 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fours !== -1 ? ref.current.fours : ""}
             </td>
-            <td className="expected  py-1 sm:py-2">
-              {expectedScore.fours}
-            </td>
+            <td className="expected  py-1 sm:py-2">{expectedScore.fours}</td>
           </tr>
-          <tr
-            onClick={handleFives}
-            className="score hover"
-          >
+          <tr onClick={handleFives} className="score hover">
             <td
-              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="5가 하나 이상	| 5의 개수 * 5"
             >
               Fives
@@ -136,16 +113,11 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fives !== -1 ? ref.current.fives : ""}
             </td>
-            <td className="expected  py-1 sm:py-2">
-              {expectedScore.fives}
-            </td>
+            <td className="expected  py-1 sm:py-2">{expectedScore.fives}</td>
           </tr>
-          <tr
-            onClick={handleSixes}
-            className="score hover"
-          >
+          <tr onClick={handleSixes} className="score hover">
             <td
-              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="6이 하나 이상	| 6의 개수 * 6"
             >
               Sixes
@@ -153,14 +125,12 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.sixes !== -1 ? ref.current.sixes : ""}
             </td>
-            <td className="expected py-1 sm:py-2">
-              {expectedScore.sixes}
-            </td>
+            <td className="expected py-1 sm:py-2">{expectedScore.sixes}</td>
           </tr>
           {/* C. 중간 점수 출력 */}
           <tr className="subtotal bg-primary-content font-extrabold">
             <td
-              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="Section 1의 점수 합"
             >
               Subtotal
@@ -171,15 +141,12 @@ const UpperScoreBoard = (props, ref) => {
           </tr>
           <tr className="bonus font-extrabold">
             <td
-              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2"
+              className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="Section 1의 점수가 63점 이상이면 35점 보너스"
             >
               Bonus
             </td>
-            <td
-              className="font-bold py-1 sm:py-2"
-              colSpan={2}
-            >
+            <td className="font-bold py-1 sm:py-2" colSpan={2}>
               {subtotal >= 63 ? "+35" : "0"}
             </td>
           </tr>
