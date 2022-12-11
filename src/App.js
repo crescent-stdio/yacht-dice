@@ -100,7 +100,7 @@ function App() {
       "https://twitter.com/intent/tweet?text=" +
         title +
         sendText +
-        "&hashtags=yacht_dice" + 
+        "&hashtags=yacht_dice" +
         "&url=" +
         sendUrl
     );
@@ -123,6 +123,27 @@ function App() {
                 alt="twitter"
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
+            </button>
+            <button
+              className="text-xl sm:text-2xl font-extrabold mx-1 tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-50 before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
+              data-tip="🎲 Yacht Dice!
+A. 주사위 굴리기
+1. 주사위는 5개가 있다.
+2. 한 라운드에서는 최대 세 번, 한 번에 최대 주사위 5개를 굴릴 수 있다.
+3. 주사위를 굴리기 전 굴리고 싶지 않은 주사위를 하나 이상 선택할 수 있다.
+4. 주사위를 적어도 한 번 굴린 후 점수 책정 단계로 넘어갈 수 있다.
+B. 점수 책정
+- 주사위 눈에 따라 다음 `12`개 조합 중 하나를 반드시 골라 해당 조합의 점수를 얻는다. 만약 주사위 눈이 해당 조합의 조건을 만족하지 않는데 선택했다면 `0`점을 얻는다.
+- `12`라운드 동안 모든 조합을 한 번씩 선택하면 게임이 끝난다.
+C. 조작법
+ℹ️: 게임 설명
+🌞: 현재 밝은 테마
+🌙: 현재 어두운 테마
+🎲: 게임 초기화
+D. Credit
+- Made by @crescent-stdio"
+            >
+              ℹ️
             </button>
             <button
               onClick={switchTheme}
