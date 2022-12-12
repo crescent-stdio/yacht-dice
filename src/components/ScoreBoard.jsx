@@ -71,7 +71,7 @@ const ScoreBoard = (props, ref) => {
       <h3 className="totalScore w-1/2 text-lg font-extrabold text-primary">
         Total: {totalScore}
       </h3>
-      <h3 className="credit font-extrabold text-xs">@crescent-stdio</h3>
+      <h3 className="credit w-1/2 text-right font-extrabold text-xs">@crescent-stdio</h3>
       </div>
     </div>
   );
