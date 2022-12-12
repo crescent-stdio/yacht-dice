@@ -86,12 +86,12 @@ function App() {
     );
   };
   return (
-    <div
-      id={imageRef}
-      ref={imageRef}
-      className="app box-border bg-base-100 max-w-screen h-[100%] flex content-center justify-center"
-    >
-      <div className="bg-base-100 px-2 py-4 pt-8 sm:px-4 sm:py-8">
+    <div className="app box-border bg-base-100 max-w-screen h-[100%] flex content-center justify-center">
+      <div
+        id={imageRef}
+        ref={imageRef}
+        className="bg-base-100 px-2 py-4 pt-8 sm:px-4 sm:py-8"
+      >
         <div className="w-full flex flex-row flex-wrap justify-between h-fit mb-4">
           <div className="flex flex-row">
             <h1 className="text-2xl sm:text-3xl font-extrabold mr-2 cursor-pointer">
