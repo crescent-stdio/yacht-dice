@@ -57,12 +57,9 @@ function App() {
   const expectedScore = calculateScore(dice);
 
   const imageRef = useRef(null);
-  const credit = document.querySelectorAll(".credit");
-  // credit.forEach((e) => (e.style.display = "none"));
   const handleShare = async () => {
     const erase = document.querySelectorAll(".erase");
     erase.forEach((e) => (e.style.display = "none"));
-    // credit.forEach((e) => (e.style.display = ""));
     const data = await htmlToImage.toPng(imageRef.current);
     const link = document.createElement("a");
     link.download = `yacht_dice-${playStatus.current.score}.png`;
@@ -70,7 +67,6 @@ function App() {
     link.click();
     link.remove();
     erase.forEach((e) => (e.style.display = ""));
-    // credit.forEach((e) => (e.style.display = "none"));
   };
   const shareTwitter = async () => {
     await handleShare();
@@ -107,11 +103,14 @@ function App() {
           </div>
           {/* theme button */}
           <div className="flex flex-row text-xl sm:text-2xl font-extrabold">
-            <button onClick={shareTwitter} className="erase">
-              🖼
+            <button
+              onClick={shareTwitter}
+              className="erase text-xl sm:text-2xl font-extrabold"
+            >
+              📷
             </button>
             <button
-              className="erase text-xl sm:text-2xl font-extrabold mx-1 tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-[100] before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
+              className="erase mx-1 text-xl sm:text-2xl font-extrabold tooltip tooltip-left md:tooltip-bottom whitespace-pre-line text-left z-[100] before:translate-y-0 before:w-[16rem] md:before:w-[20rem] before:top-0 before:content-[attr(data-tip)]"
               data-tip="🎲 Yacht Dice!
 A. 주사위 굴리기
 1. 주사위는 5개가 있다.
@@ -121,9 +120,11 @@ A. 주사위 굴리기
 B. 점수 책정
 - 주사위 눈에 따라 다음 `12`개 조합 중 하나를 반드시 골라 해당 조합의 점수를 얻는다. 만약 주사위 눈이 해당 조합의 조건을 만족하지 않는데 선택했다면 `0`점을 얻는다.
 - `12`라운드 동안 모든 조합을 한 번씩 선택하면 게임이 끝난다.
+- `EARNED`: 지금까지 선택한 점수
+- `EXPECTED`: 현재 주사위 눈에 따라 얻을 수 있는 점수
 C. 조작법
 🎲: 게임 초기화
-🖼: 트위터 공유
+📷: 사진 저장 및 트위터 공유
 ℹ️: 게임 설명
 🌞: 현재 밝은 테마
 🌙: 현재 어두운 테마

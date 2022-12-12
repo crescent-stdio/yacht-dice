@@ -50,7 +50,7 @@ const UpperScoreBoard = (props, ref) => {
           </tr>
         </thead>
         <tbody>
-          <tr onClick={handleOnes} className="score hover">
+          <tr className="score hover">
             {/* A. 점수 선택 */}
             {/* 클릭하면 현재 주사위에 대한 예상 점수가 선택한 점수로 바뀌며 다음 라운드로 진행하게 된다. */}
             <td
@@ -61,81 +61,81 @@ const UpperScoreBoard = (props, ref) => {
             </td>
             {/* A. 점수 출력 */}
             {/* `earned`, 선택한 점수 */}
-            <td className="earned py-1 sm:py-2">
+            <td onClick={handleOnes} className="earned py-1 sm:py-2">
               {ref.current.ones !== -1 ? ref.current.ones : ""}
             </td>
             {/* `expected`, 현재 주사위에 대한 예상 점수 */}
-            <td className="expected py-1 sm:py-2">
+            <td onClick={handleOnes} className="expected py-1 sm:py-2">
               {ref.current.ones !== -1 ? "-" : expectedScore.ones}
             </td>
           </tr>
-          <tr onClick={handleTwos} className="score hover">
+          <tr className="score hover">
             <td
               className="w-36 md:w-40 z-50 tooltip tooltip-top md:tooltip-left text-left py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="2가 하나 이상 | 2의 개수 * 2"
             >
               Twos
             </td>
-            <td className="earned py-1 sm:py-2">
+            <td onClick={handleTwos} className="earned py-1 sm:py-2">
               {ref.current.twos !== -1 ? ref.current.twos : ""}
             </td>
-            <td className="expected py-1 sm:py-2">
+            <td onClick={handleTwos} className="expected py-1 sm:py-2">
               {ref.current.twos !== -1 ? "-" : expectedScore.twos}
             </td>
           </tr>
-          <tr onClick={handleThrees} className="score hover">
+          <tr className="score hover">
             <td
               className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="3이 하나 이상	| 3의 개수 * 3"
             >
               Threes
             </td>
-            <td className="earned py-1 sm:py-2">
+            <td onClick={handleThrees} className="earned py-1 sm:py-2">
               {ref.current.threes !== -1 ? ref.current.threes : ""}
             </td>
-            <td className="expected py-1 sm:py-2">
+            <td onClick={handleThrees} className="expected py-1 sm:py-2">
               {ref.current.threes !== -1 ? "-" : expectedScore.threes}
             </td>
           </tr>
-          <tr onClick={handleFours} className="score hover">
+          <tr className="score hover">
             <td
               className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="4가 하나 이상	| 4의 개수 * 4"
             >
               Fours
             </td>
-            <td className="earned py-1 sm:py-2">
+            <td onClick={handleFours} className="earned py-1 sm:py-2">
               {ref.current.fours !== -1 ? ref.current.fours : ""}
             </td>
-            <td className="expected  py-1 sm:py-2">
+            <td onClick={handleFours} className="expected  py-1 sm:py-2">
               {ref.current.fours !== -1 ? "-" : expectedScore.fours}
             </td>
           </tr>
-          <tr onClick={handleFives} className="score hover">
+          <tr className="score hover">
             <td
               className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="5가 하나 이상	| 5의 개수 * 5"
             >
               Fives
             </td>
-            <td className="earned py-1 sm:py-2">
+            <td onClick={handleFives} className="earned py-1 sm:py-2">
               {ref.current.fives !== -1 ? ref.current.fives : ""}
             </td>
-            <td className="expected  py-1 sm:py-2">
+            <td onClick={handleFives} className="expected  py-1 sm:py-2">
               {ref.current.fives !== -1 ? "-" : expectedScore.fives}
             </td>
           </tr>
-          <tr onClick={handleSixes} className="score hover">
+          <tr className="score hover">
             <td
               className="w-36 md:w-40 text-left z-50 tooltip tooltip-top md:tooltip-left tooltip-info-content py-1 sm:py-2 before:text-left before:-translate-x-1/4 before:content-[attr(data-tip)]"
               data-tip="6이 하나 이상	| 6의 개수 * 6"
             >
               Sixes
             </td>
-            <td className="earned py-1 sm:py-2">
+            <td onClick={handleSixes} className="earned py-1 sm:py-2">
               {ref.current.sixes !== -1 ? ref.current.sixes : ""}
             </td>
-            <td className="expected py-1 sm:py-2">
+            <td onClick={handleSixes} className="expected py-1 sm:py-2">
               {ref.current.sixes !== -1 ? "-" : expectedScore.sixes}
             </td>
           </tr>

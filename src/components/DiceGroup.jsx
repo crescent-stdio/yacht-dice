@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import randomDice from "../utils/randomDice";
 import dice_1 from "../assets/dice_1.png";
 import dice_2 from "../assets/dice_2.png";
@@ -86,6 +86,7 @@ const DiceGroup = (props, ref) => {
 
   // D. `Roll` 버튼과 현재 진행 상황
   useEffect(() => {
+    if(ref.current.round > 12) return;
     setSelectedDice([false, false, false, false, false]);
     setDice(dice.map(() => randomDice()));
     if (ref.current.reset) ref.current.reset = false;
