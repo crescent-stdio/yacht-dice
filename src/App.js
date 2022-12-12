@@ -93,7 +93,7 @@ function App() {
         className="bg-base-100 px-2 py-4 pt-8 sm:px-4 sm:py-8"
       >
         <div className="w-full flex flex-row flex-wrap justify-between h-fit mb-4">
-          <div className="flex flex-row">
+          <div className="flex flex-row w-2/3">
             <h1 className="text-2xl sm:text-3xl font-extrabold mr-2 cursor-pointer">
               <div id="dice" onClick={toggleReset}>
                 🎲
