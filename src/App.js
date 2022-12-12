@@ -47,7 +47,6 @@ function App() {
   // D. 점수 선택시 상태 변경
   useEffect(() => {
     if (!isSubmitted) return;
-    if (playStatus.current.round >= 12) return;
     playStatus.current.round += 1;
     playStatus.current.roll = 1;
     setIsSubmitted(false);
