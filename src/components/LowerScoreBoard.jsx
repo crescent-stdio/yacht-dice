@@ -62,7 +62,9 @@ const LowerScoreBoard = (props, ref) => {
               {ref.current.choice !== -1 ? ref.current.choice : ""}
             </td>
             {/* `expected`, 현재 주사위에 대한 예상 점수 */}
-            <td className="expected py-1 sm:py-2">{expectedScore.choice}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.choice !== -1 ? "-" : expectedScore.choice}
+            </td>
           </tr>
           <tr onClick={handleFourOfAKind} className="score hover">
             <td
@@ -75,7 +77,7 @@ const LowerScoreBoard = (props, ref) => {
               {ref.current.fourOfAKind !== -1 ? ref.current.fourOfAKind : ""}
             </td>
             <td className="expected py-1 sm:py-2">
-              {expectedScore.fourOfAKind}
+              {ref.current.fourOfAKind !== -1 ? "-" : expectedScore.fourOfAKind}
             </td>
           </tr>
           <tr onClick={handleFullHouse} className="score hover">
@@ -90,7 +92,9 @@ const LowerScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fullHouse !== -1 ? ref.current.fullHouse : ""}
             </td>
-            <td className="expected py-1 sm:py-2">{expectedScore.fullHouse}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.fullHouse !== -1 ? "-" : expectedScore.fullHouse}
+            </td>
           </tr>
           <tr onClick={handleSmallStraight} className="score hover">
             <td
@@ -105,7 +109,9 @@ const LowerScoreBoard = (props, ref) => {
                 : ""}
             </td>
             <td className="expected py-1 sm:py-2">
-              {expectedScore.smallStraight}
+              {ref.current.smallStraight !== -1
+                ? "-"
+                : expectedScore.smallStraight}
             </td>
           </tr>
           <tr onClick={handleLargeStraight} className="score hover">
@@ -121,7 +127,9 @@ const LowerScoreBoard = (props, ref) => {
                 : ""}
             </td>
             <td className="expected py-1 sm:py-2">
-              {expectedScore.largeStraight}
+              {ref.current.largeStraight !== -1
+                ? "-"
+                : expectedScore.largeStraight}
             </td>
           </tr>
           <tr onClick={handleYacht} className="score hover">
@@ -134,7 +142,9 @@ const LowerScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.yacht !== -1 ? ref.current.yacht : ""}
             </td>
-            <td className="expected py-1 sm:py-2">{expectedScore.yacht}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.yacht !== -1 ? "-" : expectedScore.yacht}
+            </td>
           </tr>
         </tbody>
       </table>

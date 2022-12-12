@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+const { join } = require('path');
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
+  ],
   darkMode: ["class", '[data-theme="dracula"]'],
   daisyui: {
     themes: [

@@ -51,6 +51,7 @@ const DiceGroup = (props, ref) => {
     false,
   ]);
 
+  // eslint-disable-next-line
   useEffect(() => {
     setDice(dice.map(() => randomDice()));
   }, []);
@@ -92,7 +93,7 @@ const DiceGroup = (props, ref) => {
 
   // console.log(ref.current.theme);
   return (
-    <div className="mb-4 h-full">
+    <div className="mb-4 sm:mb-2 h-full">
       <div className="mb-1">
         {/* A. 현재 진행 사항 표시 */}
         {ref.current.round <= 12 ? (

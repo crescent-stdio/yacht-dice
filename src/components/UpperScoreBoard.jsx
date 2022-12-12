@@ -65,7 +65,9 @@ const UpperScoreBoard = (props, ref) => {
               {ref.current.ones !== -1 ? ref.current.ones : ""}
             </td>
             {/* `expected`, 현재 주사위에 대한 예상 점수 */}
-            <td className="expected py-1 sm:py-2">{expectedScore.ones}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.ones !== -1 ? "-" : expectedScore.ones}
+            </td>
           </tr>
           <tr onClick={handleTwos} className="score hover">
             <td
@@ -77,7 +79,9 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.twos !== -1 ? ref.current.twos : ""}
             </td>
-            <td className="expected py-1 sm:py-2">{expectedScore.twos}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.twos !== -1 ? "-" : expectedScore.twos}
+            </td>
           </tr>
           <tr onClick={handleThrees} className="score hover">
             <td
@@ -89,7 +93,9 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.threes !== -1 ? ref.current.threes : ""}
             </td>
-            <td className="expected py-1 sm:py-2">{expectedScore.threes}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.threes !== -1 ? "-" : expectedScore.threes}
+            </td>
           </tr>
           <tr onClick={handleFours} className="score hover">
             <td
@@ -101,7 +107,9 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fours !== -1 ? ref.current.fours : ""}
             </td>
-            <td className="expected  py-1 sm:py-2">{expectedScore.fours}</td>
+            <td className="expected  py-1 sm:py-2">
+              {ref.current.fours !== -1 ? "-" : expectedScore.fours}
+            </td>
           </tr>
           <tr onClick={handleFives} className="score hover">
             <td
@@ -113,7 +121,9 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.fives !== -1 ? ref.current.fives : ""}
             </td>
-            <td className="expected  py-1 sm:py-2">{expectedScore.fives}</td>
+            <td className="expected  py-1 sm:py-2">
+              {ref.current.fives !== -1 ? "-" : expectedScore.fives}
+            </td>
           </tr>
           <tr onClick={handleSixes} className="score hover">
             <td
@@ -125,7 +135,9 @@ const UpperScoreBoard = (props, ref) => {
             <td className="earned py-1 sm:py-2">
               {ref.current.sixes !== -1 ? ref.current.sixes : ""}
             </td>
-            <td className="expected py-1 sm:py-2">{expectedScore.sixes}</td>
+            <td className="expected py-1 sm:py-2">
+              {ref.current.sixes !== -1 ? "-" : expectedScore.sixes}
+            </td>
           </tr>
           {/* C. 중간 점수 출력 */}
           <tr className="subtotal bg-primary-content font-extrabold">

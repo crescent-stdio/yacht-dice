@@ -5,8 +5,6 @@ import DiceGroup from "./components/DiceGroup";
 import ScoreBoard from "./components/ScoreBoard";
 import calculateScore from "./utils/calculateScore";
 import useLocalStorage from "use-local-storage";
-import twitter from "./assets/twitter.svg";
-import { toBlob } from "html-to-image";
 import * as htmlToImage from "html-to-image";
 
 function App() {
@@ -49,6 +47,7 @@ function App() {
   // D. 점수 선택시 상태 변경
   useEffect(() => {
     if (!isSubmitted) return;
+    if (playStatus.current.round >= 12) return;
     playStatus.current.round += 1;
     playStatus.current.roll = 1;
     setIsSubmitted(false);
@@ -59,20 +58,23 @@ function App() {
   const expectedScore = calculateScore(dice);
 
   const imageRef = useRef(null);
+  const credit = document.querySelectorAll(".credit");
+  // credit.forEach((e) => (e.style.display = "none"));
   const handleShare = async () => {
     const erase = document.querySelectorAll(".erase");
     erase.forEach((e) => (e.style.display = "none"));
+    // credit.forEach((e) => (e.style.display = ""));
     const data = await htmlToImage.toPng(imageRef.current);
-
     const link = document.createElement("a");
     link.download = `yacht_dice-${playStatus.current.score}.png`;
     link.href = data;
     link.click();
     link.remove();
     erase.forEach((e) => (e.style.display = ""));
+    // credit.forEach((e) => (e.style.display = "none"));
   };
-  const shareTwitter = () => {
-    handleShare();
+  const shareTwitter = async () => {
+    await handleShare();
     const title = "Yacht Dice!: ";
     const sendText =
       playStatus.current.round > 12
@@ -92,9 +94,9 @@ function App() {
     <div
       id={imageRef}
       ref={imageRef}
-      className="app box-border max-x-screen h-[100%] flex content-center justify-center"
+      className="app box-border bg-base-100 max-w-screen h-[100%] flex content-center justify-center"
     >
-      <div className="bg-base-100 px-2 py-4 sm:px-4 sm:py-8">
+      <div className="bg-base-100 px-2 py-4 pt-8 sm:px-4 sm:py-8">
         <div className="w-full flex flex-row flex-wrap justify-between h-fit mb-4">
           <div className="flex flex-row">
             <h1 className="text-2xl sm:text-3xl font-extrabold mr-2 cursor-pointer">
@@ -152,7 +154,7 @@ D. Credit
             />
           </div>
           {/* <div className="w-[0vw] sm:mr-4"></div> */}
-          <div className="max-h-[100%]">
+          <div className="h-[100%]">
             {/* B. 현재 게임의 상태 전달 */}
             {/* 주사위들을 표시하는 컴포넌트 */}
             <DiceGroup ref={playStatus} dice={dice} setDice={setDice} />

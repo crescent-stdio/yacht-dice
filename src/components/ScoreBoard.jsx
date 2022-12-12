@@ -67,9 +67,12 @@ const ScoreBoard = (props, ref) => {
       />
       <div className="mb-2" />
       {/* B. 최종 점수 출력 */}
-      <h3 className="totalScore text-lg font-extrabold text-primary">
+      <div className="flex flex-row justify-between content-center items-center">
+      <h3 className="totalScore w-1/2 text-lg font-extrabold text-primary">
         Total: {totalScore}
       </h3>
+      <h3 className="credit font-extrabold text-xs">@crescent-stdio</h3>
+      </div>
     </div>
   );
 };
