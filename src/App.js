@@ -5,7 +5,7 @@ import DiceGroup from "./components/DiceGroup";
 import ScoreBoard from "./components/ScoreBoard";
 import calculateScore from "./utils/calculateScore";
 import useLocalStorage from "use-local-storage";
-import * as htmlToImage from "html-to-image";
+import * as domToImage from "dom-to-image";
 
 function App() {
   // 주사위 5개의 현재 상태를 나타내는 배열
@@ -60,7 +60,7 @@ function App() {
   const handleShare = async () => {
     const erase = document.querySelectorAll(".erase");
     erase.forEach((e) => (e.style.display = "none"));
-    const data = await htmlToImage.toPng(imageRef.current);
+    const data = await domToImage.toPng(imageRef.current);
     const link = document.createElement("a");
     link.download = `yacht_dice-${playStatus.current.score}.png`;
     link.href = data;
