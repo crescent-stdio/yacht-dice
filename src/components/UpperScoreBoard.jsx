@@ -41,7 +41,7 @@ const UpperScoreBoard = (props, ref) => {
   return (
     <div>
       <h3 className="text-lg font-bold text-secondary">[Section 1]</h3>
-      <table className="table table-fixed table-compact">
+      <table className="table table-fixed table-compact border-separate">
         <thead>
           <tr>
             <th className="w-36 md:w-40 py-1 sm:py-2"></th>

@@ -38,7 +38,7 @@ const LowerScoreBoard = (props, ref) => {
   return (
     <div>
       <h3 className="text-lg font-bold text-secondary">[Section 2]</h3>
-      <table className="table table-fixed table-compact w-auto border-collapse">
+      <table className="table table-fixed table-compact w-auto border-separate">
         <thead>
           <tr>
             <th className="w-36 md:w-40 py-1 sm:py-2"></th>
